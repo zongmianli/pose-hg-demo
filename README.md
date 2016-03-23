@@ -3,9 +3,7 @@
 This repository includes Torch code for evaluation and visualization of the network presented in:
 
 Alejandro Newell, Kaiyu Yang, and Jia Deng,
-
 **Stacked Hourglass Networks for Human Pose Estimation**,
-
 [arXiv:1603.06937](http://arxiv.org/abs/1603.06937), 2016.
 
 A pretrained model is available on the [project site](http://www-personal.umich.edu/~alnewell/pose). Include the model in the main directory of this repository to run the demo code.
