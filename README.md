@@ -1,6 +1,9 @@
 # Stacked Hourglass Networks for Human Pose Estimation (Demo Code)
 
-This repository includes some basic Torch code for evaluation and visualization of our network output. A pretrained model is available on the [project site](http://www-personal.umich.edu/~alnewell/pose). Include the model in the main directory of this repository to run the demo code.
+This repository includes Torch code for evaluation and visualization of the network presented in: Alejandro Newell, Kaiyu Yang, and Jia Deng,
+**Stacked Hourglass Networks for Human Pose Estimation**,
+[arXiv:1603.06937](http://arxiv.org/abs/1603.06937), 2016.
+A pretrained model is available on the [project site](http://www-personal.umich.edu/~alnewell/pose). Include the model in the main directory of this repository to run the demo code.
 
 In addition, if you download the full [MPII Human Pose dataset](human-pose.mpi-inf.mpg.de) and replace this repository's `images` directory you can generate full predictions on the validation and test sets.
 
@@ -35,3 +38,4 @@ To use the network off-the-shelf, it is critical that the target person is cente
 The two outputs of `getPreds` are coordinates with respect to either the heatmap or the original image (using center and scale to apply the appropriate transformation back to the image space).
 
 The MPII images come with center and scale annotations already. An important detail with regards to the annotations: we have modified their format slightly for ease of use with our code. In addition, we adjusted the original center and scale annotations uniformly across all images so as to reduce the chances of our function cropping out feet from the bottom of the image. This mostly involved moving the center down a fraction.
+
