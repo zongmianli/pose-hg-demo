@@ -39,6 +39,9 @@ function getTransform(center, scale, rot, res)
 end
 
 function transform(pt, center, scale, rot, res, invert)
+    -- For managing coordinate transformations between the original image space
+    -- and the heatmap
+
     local pt_ = torch.ones(3)
     pt_[1] = pt[1]
     pt_[2] = pt[2]
@@ -55,6 +58,10 @@ end
 -------------------------------------------------------------------------------
 
 function crop(img, center, scale, rot, res)
+    -- Crop function tailored to the needs of our system. Provide a center
+    -- and scale value and the image will be cropped and resized to the output
+    -- resolution determined by res. 'rot' will also rotate the image as needed.
+
     local ul = transform({1,1}, center, scale, 0, res, true)
     local br = transform({res,res}, center, scale, 0, res, true)
 
@@ -196,7 +203,7 @@ end
 
 function drawLine(img,pt1,pt2,width,color)
     -- I'm sure there's a line drawing function somewhere in Torch,
-    -- but since I couldn't find it here's my basic implementation,
+    -- but since I couldn't find it here's my basic implementation
     local color = color or {1,1,1}
     local m = torch.dist(pt1,pt2)
     local dy = (pt2[2] - pt1[2])/m

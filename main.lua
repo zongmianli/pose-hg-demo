@@ -7,9 +7,13 @@ paths.dofile('img.lua')
 --------------------------------------------------------------------------------
 
 if arg[1] == 'demo' or arg[1] == 'predict-test' then
+    -- Test set annotations do not have ground truth part locations, but provide
+    -- information about the location and scale of people in each image.
     a = loadAnnotations('test')
 
 elseif arg[1] == 'predict-valid' or arg[1] == 'eval' then
+    -- Validation set annotations on the other hand, provide part locations,
+    -- visibility information, normalization factors for final evaluation, etc.
     a = loadAnnotations('valid')
 
 else
@@ -25,13 +29,14 @@ m = torch.load('umich-stacked-hourglass.t7')   -- Load pre-trained model
 
 if arg[1] == 'demo' then
     idxs = torch.Tensor({695, 3611, 2486, 7424, 10032, 5, 4829})
-    -- If all the MPII images are available, use this to see a random sampling of images
+    -- If all the MPII images are available, use the following line to see a random sampling of images
     -- idxs = torch.randperm(a.nsamples):sub(1,10)
 else
     idxs = torch.range(1,a.nsamples)
 end
 
-if arg[1] == 'eval' then nsamples = 0
+if arg[1] == 'eval' then
+    nsamples = 0
 else
     nsamples = idxs:nElement() 
     -- Displays a convenient progress bar
