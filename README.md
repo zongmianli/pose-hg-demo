@@ -1,6 +1,6 @@
 # Stacked Hourglass Networks for Human Pose Estimation (Demo Code)
 
-This repository includes some basic Torch code for evaluation and visualization of our network output. A pretrained model is available on the project site at [www-personal.umich.edu/~alnewell/pose](http://www-personal.umich.edu/~alnewell/pose). Include it in the main directory of this repository to run the demo code.
+This repository includes some basic Torch code for evaluation and visualization of our network output. A pretrained model is available on the [project site](http://www-personal.umich.edu/~alnewell/pose). Include the model in the main directory of this repository to run the demo code.
 
 In addition, if you download the full [MPII Human Pose dataset](human-pose.mpi-inf.mpg.de) and replace images/ you can generate full predictions on the validation and test sets.
 
