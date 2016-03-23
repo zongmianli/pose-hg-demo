@@ -29,6 +29,7 @@ To use the network off-the-shelf, it is critical that the target person is cente
 `res` should be set to 256 for our network. `rot` is offered if you wish to rotate the image (in degrees). You can run the input image through the network, and get the (x,y) coordinates with:
 
 `outputHm = m:forward(inputImg:view(1,3,256,256):cuda())`
+
 `predsHm,predsImg = getPreds(outputHm, center, scale)`
 
 The two outputs of `getPreds` are coordinates with respect to either the heatmap or the original image (using center and scale to apply the appropriate transformation back to the image space).
