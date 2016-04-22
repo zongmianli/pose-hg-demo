@@ -8,6 +8,8 @@ Alejandro Newell, Kaiyu Yang, and Jia Deng,
 
 A pretrained model is available on the [project site](http://www-personal.umich.edu/~alnewell/pose). Include the model in the main directory of this repository to run the demo code.
 
+**Check out the training and experimentation code now available at: [https://github.com/anewell/pose-hg-train](https://github.com/anewell/pose-hg-train)**
+
 In addition, if you download the full [MPII Human Pose dataset](http://human-pose.mpi-inf.mpg.de) and replace this repository's `images` directory you can generate full predictions on the validation and test sets.
 
 To run this code, the following must be installed:
