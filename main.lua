@@ -58,7 +58,7 @@ for i = 1,nsamples do
     -- Get network output
     local out = m:forward(inp:view(1,3,256,256):cuda())
     cutorch.synchronize()
-    local hm = out[2][1]:float()
+    local hm = out[#out][1]:float()
     hm[hm:lt(0)] = 0
 
     -- Get predictions (hm and img refer to the coordinate space)
