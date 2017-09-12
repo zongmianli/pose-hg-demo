@@ -53,7 +53,7 @@ function getPreds(hms, center, scale)
     preds[{{}, {}, 1}]:apply(function(x) return (x - 1) % hms:size(4) + 1 end)
     preds[{{}, {}, 2}]:add(-1):div(hms:size(3)):floor():add(1)
     local predMask = max:gt(0):repeatTensor(1, 1, 2):float()
-    preds:add(-.5):cmul(predMask):add(1)
+    preds:add(-1):cmul(predMask):add(1)
 
     -- Get transformed coordinates
     local preds_tf = torch.zeros(preds:size())
