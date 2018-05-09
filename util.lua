@@ -11,6 +11,19 @@ require 'cunn'
 require 'cutorch'
 require 'cudnn'
 
+function loadAnnotHandtools(video_name)
+    --
+    local annot_path = '/sequoia/data3/zoli/contact/baseline/3d_pose_baseline/' .. video_name .. '/sh_pred.h5'
+    local a = hdf5.open(annot_path)
+    annot = {}
+    annot['center'] = a:read('centers'):all()
+    annot['scale'] = a:read('scales'):all()
+    annot['fids'] = a:read('fids'):all()
+    annot.nsamples = annot.fids:size()[1]
+    a:close()
+    return annot
+end
+
 function loadAnnotations(set)
     -- Load up a set of annotations for either: 'train', 'valid', or 'test'
     -- There is no part information in 'test'
@@ -113,7 +126,7 @@ function drawOutput(input, hms, coords)
 
     local colorHms = {}
     local inp64 = image.scale(input,64):mul(.3)
-    for i = 1,16 do 
+    for i = 1,16 do
         colorHms[i] = colorHM(hms[i])
         colorHms[i]:mul(.7):add(inp64)
     end
@@ -179,7 +192,7 @@ function displayPCK(dists, part_idx, label, title, show_key)
 
     require 'gnuplot'
     gnuplot.raw('set title "' .. title .. '"')
-    if not show_key then gnuplot.raw('unset key') 
+    if not show_key then gnuplot.raw('unset key')
     else gnuplot.raw('set key font ",6" right bottom') end
     gnuplot.raw('set xrange [0:.5]')
     gnuplot.raw('set yrange [0:1]')
