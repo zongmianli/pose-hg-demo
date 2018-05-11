@@ -13,7 +13,7 @@ require 'cudnn'
 
 function loadAnnotHandtools(video_name)
     --
-    local annot_path = '/sequoia/data3/zoli/contact/baseline/3d_pose_baseline/' .. video_name .. '/sh_pred.h5'
+    local annot_path = '/sequoia/data3/zoli/contact/baseline/3d_pose_baseline/' .. video_name .. '/bbox_2d.h5'
     local a = hdf5.open(annot_path)
     annot = {}
     annot['center'] = a:read('centers'):all()

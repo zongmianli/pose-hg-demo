@@ -22,12 +22,12 @@ then
   # hammer
   video_names=('hammer_0001' 'hammer_0003' 'hammer_0006' 'hammer_0007' 'hammer_0010')
   frames_start=('0' '0' '0' '0' '0')
-  frames_end=('98' '97' '125' '78' '99')
+  frames_end=('97' '97' '125' '78' '98')
 elif [ ${tool_name} = 'scythe' ]
 then
   # scythe
   video_names=('scythe_0001' 'scythe_0002' 'scythe_0003' 'scythe_0005' 'scythe_0006')
-  frames_start=('0' '0' '0' '9' '0')
+  frames_start=('0' '0' '0' '0' '0')
   frames_end=('185' '104' '114' '99' '138')
 elif [ ${tool_name} = 'wrench' ]
 then
